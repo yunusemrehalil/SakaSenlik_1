@@ -12,17 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/wave">
-
     </LinearLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/yazi"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sifre"
         app:layout_constraintStart_toStartOf="parent"
         app:boxBackgroundMode="none"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittexts"
@@ -43,6 +42,7 @@
         android:elevation="10dp"
         app:cardCornerRadius="30dp"
         app:cardBackgroundColor="@color/black">
+
         <TextView
             android:layout_height="match_parent"
             android:layout_width="match_parent"
@@ -216,22 +216,35 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
+        android:id="@+id/sifre"
         android:text="Lütfen şifrenizi giriniz."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/animate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
     </TextView>
 
+    <Button
+        android:id="@+id/animate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="animate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
+    </Button>
 
-
-
-
-
-
-
+    <view class="com.example.mykeyboard3.CircleView"
+        android:id="@+id/circle_btn"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        app:layout_constraintTop_toBottomOf="@+id/yazi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button2"
+        android:layout_marginTop="10dp"
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>
