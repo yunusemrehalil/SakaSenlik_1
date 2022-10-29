@@ -20,9 +20,9 @@ public class CircleView @JvmOverloads constructor(
         textSize = 50f
     }
 
-    private val centre = PointF(50f,50f)
+    private val centre = PointF(100f,100f)
     override fun onDraw(canvas: Canvas?) {
-        canvas?.drawCircle(centre.x,centre.y,50f,paint)
+        canvas?.drawCircle(centre.x,centre.y,100f,paint)
         canvas?.drawText("1",centre.x-12,centre.y+12,paint1)
     }
 }

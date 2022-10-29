@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
 import android.media.Image
+import android.opengl.Visibility
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -53,12 +54,10 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
-            circle_btn.setOnClickListener(){
-                keyValues.put(R.id.circle_btn, "1")
-            }
 
-
-            circle_btn.setOnClickListener(){
+            circle_btn.setOnClickListener()
+            {
+                //button1.visibility = View.INVISIBLE
             ObjectAnimator.ofFloat(circle_btn, "translationY", 770f).apply {
                 duration=800L
                 start()
@@ -116,7 +115,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                 edittexts.isFocusable=true
             }
 
-
+            //circle_btn.setOnClickListener(this@MainActivity)
             button1.setOnClickListener(this@MainActivity)
             button2.setOnClickListener(this@MainActivity)
             button3.setOnClickListener(this@MainActivity)
@@ -128,6 +127,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             button9.setOnClickListener(this@MainActivity)
 
         }
+        keyValues.put(R.id.circle_btn, "1")
         keyValues.put(R.id.button1, "1")
         keyValues.put(R.id.button2, "2")
         keyValues.put(R.id.button3, "3")
