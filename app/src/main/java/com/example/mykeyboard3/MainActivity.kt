@@ -6,12 +6,15 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
 import android.media.Image
+import android.nfc.Tag
 import android.opengl.Visibility
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.text.InputType
 import android.util.AttributeSet
+import android.util.Log
 import android.util.SparseArray
 import android.view.View
 import android.view.ViewPropertyAnimator
@@ -26,25 +29,9 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.delay
 import kotlin.math.max
 
-private fun generatePath(path: Path, maxh: Float, damp: Float)
-{
-    var damp1 = damp
-    path.lineTo(0f, maxh)
-
-    for (i in 1..8)
-    {
-        path.lineTo(0f, maxh-maxh/damp1)
-        path.lineTo(0f,maxh)
-        damp1 *= 2f
-    }
-}
-
-
 
 class MainActivity : AppCompatActivity(),View.OnClickListener {
 
-        private var keyValues= SparseArray<String>()
-        var code = StringBuilder()
         private lateinit var binding: ActivityMainBinding
         override fun onCreate(savedInstanceState: Bundle?) {
         var height1: Int = resources.displayMetrics.heightPixels
@@ -54,54 +41,173 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
-
-            circle_btn.setOnClickListener()
+            circle_btn_1.setOnClickListener()
             {
-                //button1.visibility = View.INVISIBLE
-            ObjectAnimator.ofFloat(circle_btn, "translationY", 770f).apply {
+                edittexts.append("1")
+                ObjectAnimator.ofFloat(circle_btn_1, "translationY", 770f).apply {
                 duration=800L
                 start()
             }
-                ObjectAnimator.ofFloat(circle_btn, "translationY", 400f).apply {
+                ObjectAnimator.ofFloat(circle_btn_1, "translationY", 400f).apply {
                     duration=800L
                     startDelay = 800L
                     start()
                 }
-                ObjectAnimator.ofFloat(circle_btn, "translationY", 650f).apply {
+                ObjectAnimator.ofFloat(circle_btn_1, "translationY", 650f).apply {
                     duration=800L
                     startDelay = 1600L
                     start()
                 }
-                ObjectAnimator.ofFloat(circle_btn, "translationY", 500f).apply {
+                ObjectAnimator.ofFloat(circle_btn_1, "translationY", 500f).apply {
                     duration=800L
                     startDelay = 2400L
                     start()
                 }
-                ObjectAnimator.ofFloat(circle_btn, "translationY", 550f).apply {
+                ObjectAnimator.ofFloat(circle_btn_1, "translationY", 550f).apply {
                     duration=800L
                     startDelay = 3200L
                     start()
                 }
             }
-
-
-            animate.setOnClickListener(){
-                val animasyon1 = ObjectAnimator.ofFloat(button1,"translationY", 700f)
-                val animasyon2 = ObjectAnimator.ofFloat(button2,"translationY", 700f)
-                val animasyon3 = ObjectAnimator.ofFloat(button3,"translationY", 700f)
-                val animasyon4 = ObjectAnimator.ofFloat(button4,"translationY", 700f)
-                val animasyon5 = ObjectAnimator.ofFloat(button5,"translationY", 700f)
-
-                animasyon1.duration = 800
-                animasyon2.duration = 800
-                animasyon3.duration = 800
-                animasyon4.duration = 800
-                animasyon5.duration = 800
-                animasyon1.start()
-                animasyon2.start()
-                animasyon3.start()
-                animasyon4.start()
-                animasyon5.start()
+            circle_btn_2.setOnClickListener()
+            {
+                edittexts.append("2")
+                ObjectAnimator.ofFloat(circle_btn_2, "translationY", 770f).apply {
+                    duration=800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_2, "translationY", 400f).apply {
+                    duration=800L
+                    startDelay = 800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_2, "translationY", 650f).apply {
+                    duration=800L
+                    startDelay = 1600L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_2, "translationY", 500f).apply {
+                    duration=800L
+                    startDelay = 2400L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_2, "translationY", 550f).apply {
+                    duration=800L
+                    startDelay = 3200L
+                    start()
+                }
+            }
+            circle_btn_3.setOnClickListener()
+            {
+                edittexts.append("3")
+                ObjectAnimator.ofFloat(circle_btn_3, "translationY", 770f).apply {
+                    duration=800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_3, "translationY", 400f).apply {
+                    duration=800L
+                    startDelay = 800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_3, "translationY", 650f).apply {
+                    duration=800L
+                    startDelay = 1600L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_3, "translationY", 500f).apply {
+                    duration=800L
+                    startDelay = 2400L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_3, "translationY", 550f).apply {
+                    duration=800L
+                    startDelay = 3200L
+                    start()
+                }
+            }
+            circle_btn_4.setOnClickListener()
+            {
+                edittexts.append("4")
+                ObjectAnimator.ofFloat(circle_btn_4, "translationY", 770f).apply {
+                    duration=800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_4, "translationY", 400f).apply {
+                    duration=800L
+                    startDelay = 800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_4, "translationY", 650f).apply {
+                    duration=800L
+                    startDelay = 1600L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_4, "translationY", 500f).apply {
+                    duration=800L
+                    startDelay = 2400L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_4, "translationY", 550f).apply {
+                    duration=800L
+                    startDelay = 3200L
+                    start()
+                }
+            }
+            circle_btn_5.setOnClickListener()
+            {
+                edittexts.append("5")
+                ObjectAnimator.ofFloat(circle_btn_5, "translationY", 770f).apply {
+                    duration=800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_5, "translationY", 400f).apply {
+                    duration=800L
+                    startDelay = 800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_5, "translationY", 650f).apply {
+                    duration=800L
+                    startDelay = 1600L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_5, "translationY", 500f).apply {
+                    duration=800L
+                    startDelay = 2400L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_5, "translationY", 550f).apply {
+                    duration=800L
+                    startDelay = 3200L
+                    start()
+                }
+            }
+            circle_btn_6.setOnClickListener()
+            {
+                edittexts.append("6")
+                ObjectAnimator.ofFloat(circle_btn_6, "translationY", 770f).apply {
+                    duration=800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_6, "translationY", 400f).apply {
+                    duration=800L
+                    startDelay = 800L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_6, "translationY", 650f).apply {
+                    duration=800L
+                    startDelay = 1600L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_6, "translationY", 500f).apply {
+                    duration=800L
+                    startDelay = 2400L
+                    start()
+                }
+                ObjectAnimator.ofFloat(circle_btn_6, "translationY", 550f).apply {
+                    duration=800L
+                    startDelay = 3200L
+                    start()
+                }
             }
 
             if(Build.VERSION.SDK_INT >=21) edittexts.showSoftInputOnFocus=false
@@ -114,40 +220,13 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                 edittexts.setRawInputType(InputType.TYPE_NULL)
                 edittexts.isFocusable=true
             }
-
-            //circle_btn.setOnClickListener(this@MainActivity)
-            button1.setOnClickListener(this@MainActivity)
-            button2.setOnClickListener(this@MainActivity)
-            button3.setOnClickListener(this@MainActivity)
-            button4.setOnClickListener(this@MainActivity)
-            button5.setOnClickListener(this@MainActivity)
-            button6.setOnClickListener(this@MainActivity)
-            button7.setOnClickListener(this@MainActivity)
-            button8.setOnClickListener(this@MainActivity)
-            button9.setOnClickListener(this@MainActivity)
-
         }
-        keyValues.put(R.id.circle_btn, "1")
-        keyValues.put(R.id.button1, "1")
-        keyValues.put(R.id.button2, "2")
-        keyValues.put(R.id.button3, "3")
-        keyValues.put(R.id.button4, "4")
-        keyValues.put(R.id.button5, "5")
-        keyValues.put(R.id.button6, "6")
-        keyValues.put(R.id.button7, "7")
-        keyValues.put(R.id.button8, "8")
-        keyValues.put(R.id.button9, "9")
     }
-
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onClick(v: View?)  {
-        var value =keyValues.get(v!!.id)
         setContentView(binding.root)
         binding.apply {
-            code.append(value)
-            edittexts.setText(code)
 
         }
     }
-
 }

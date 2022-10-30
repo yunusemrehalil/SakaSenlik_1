@@ -10,22 +10,21 @@ import android.util.AttributeSet
 import android.view.View
 
 
-public class CircleView @JvmOverloads constructor(
+public class CircleView2 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
     val paint = Paint().apply{
-         color = Color.RED
+        color = Color.RED
     }
     val paint1 = Paint().apply {
         color = Color.BLACK
         textSize = 50f
     }
-    val char_1: String = resources.getString(R.string.circle1)
+    val char_2: String = resources.getString(R.string.circle2)
 
     private val centre = PointF(100f,100f)
     override fun onDraw(canvas: Canvas?) {
         canvas?.drawCircle(centre.x,centre.y,100f,paint)
-        canvas?.drawText(char_1,centre.x-12,centre.y+12,paint1)
-
+        canvas?.drawText(char_2,centre.x-12,centre.y+12,paint1)
     }
 }
