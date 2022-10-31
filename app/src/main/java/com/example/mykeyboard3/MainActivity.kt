@@ -1,34 +1,15 @@
 package com.example.mykeyboard3
 
-import android.animation.Animator
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.content.Context
-import android.graphics.*
-import android.media.Image
-import android.nfc.Tag
-import android.opengl.Visibility
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.text.Editable
-import android.text.InputType
-import android.util.AttributeSet
-import android.util.Log
-import android.util.SparseArray
-import android.view.View
-import android.view.ViewPropertyAnimator
-import com.example.mykeyboard3.databinding.ActivityMainBinding
-import androidx.annotation.RequiresApi
-import java.util.*
-import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.ImageView
-import androidx.cardview.widget.CardView
-import androidx.core.view.ViewCompat.animate
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.coroutines.delay
-import kotlin.math.max
 
+import android.animation.ObjectAnimator
+import android.os.Build
+import android.os.Bundle
+import android.text.InputType
+import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mykeyboard3.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),View.OnClickListener {
 
@@ -209,7 +190,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                     start()
                 }
             }
-
             if(Build.VERSION.SDK_INT >=21) edittexts.showSoftInputOnFocus=false
             else if(Build.VERSION.SDK_INT >=11)
             {
@@ -227,6 +207,14 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         setContentView(binding.root)
         binding.apply {
 
+        }
+    }
+    fun DeleteText(view: View) {
+        var len:Int = edittexts.length()
+        if(len>0)
+        {
+            var newString:String = edittexts.text.toString().substring(0,len-1)
+            edittexts.setText(newString)
         }
     }
 }

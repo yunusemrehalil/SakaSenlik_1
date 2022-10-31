@@ -10,9 +10,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ><pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/wave">
+        android:src="@drawable/gif4"></pl.droidsonroids.gif.GifImageView>
     </LinearLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/yazi"
@@ -28,10 +32,30 @@
             android:id="@+id/edittexts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-             android:cursorVisible="true">
+            android:cursorVisible="true"
+            android:hint="Please write here"
+            android:autofillHints="phone"
+            >
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
-
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="80dp"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/white"
+        android:text="Delete"
+        android:clickable="true"
+        android:onClick="DeleteText"
+        android:elevation="10dp"
+        android:shadowRadius="50"
+        android:alpha="0.8"
+        >
+    </Button>
     <view class="com.example.mykeyboard3.CircleView"
         android:id="@+id/circle_btn_1"
         android:layout_width="80dp"
@@ -40,6 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/circle_btn_2"
         android:layout_margin="20dp"
+        android:alpha="0.8"
          />
     <view class="com.example.mykeyboard3.CircleView2"
         android:id="@+id/circle_btn_2"
@@ -49,7 +74,7 @@
         app:layout_constraintStart_toStartOf="@id/circle_btn_1"
         app:layout_constraintEnd_toEndOf="@id/circle_btn_3"
         android:layout_margin="20dp"
-
+        android:alpha="0.8"
         />
     <view class="com.example.mykeyboard3.CircleView3"
         android:id="@+id/circle_btn_3"
@@ -59,16 +84,18 @@
         app:layout_constraintStart_toStartOf="@id/circle_btn_2"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
+        android:alpha="0.8"
         />
     <view class="com.example.mykeyboard3.CircleView4"
-    android:id="@+id/circle_btn_4"
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    app:layout_constraintTop_toBottomOf="@+id/circle_btn_1"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="@id/circle_btn_5"
-    android:layout_margin="20dp"
-    />
+        android:id="@+id/circle_btn_4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/circle_btn_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/circle_btn_5"
+        android:layout_margin="20dp"
+        android:alpha="0.8"
+        />
     <view class="com.example.mykeyboard3.CircleView5"
         android:id="@+id/circle_btn_5"
         android:layout_width="80dp"
@@ -77,6 +104,7 @@
         app:layout_constraintStart_toStartOf="@id/circle_btn_4"
         app:layout_constraintEnd_toEndOf="@id/circle_btn_6"
         android:layout_margin="20dp"
+        android:alpha="0.8"
         />
     <view class="com.example.mykeyboard3.CircleView6"
         android:id="@+id/circle_btn_6"
@@ -86,6 +114,6 @@
         app:layout_constraintStart_toStartOf="@id/circle_btn_5"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
+        android:alpha="0.8"
         />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,4 @@
 package com.example.mykeyboard3
-
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -8,23 +7,20 @@ import android.graphics.Paint
 import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
-
-
 public class CircleView2 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-    val paint = Paint().apply{
-        color = Color.RED
+    val paintcircle = Paint().apply{
+        color = Color.GRAY
     }
-    val paint1 = Paint().apply {
+    val painttext = Paint().apply {
         color = Color.BLACK
         textSize = 50f
     }
-    val char_2: String = resources.getString(R.string.circle2)
-
+    private val char: String = resources.getString(R.string.circle2)
     private val centre = PointF(100f,100f)
     override fun onDraw(canvas: Canvas?) {
-        canvas?.drawCircle(centre.x,centre.y,100f,paint)
-        canvas?.drawText(char_2,centre.x-12,centre.y+12,paint1)
+        canvas?.drawCircle(centre.x,centre.y,100f,paintcircle)
+        canvas?.drawText(char,centre.x-12,centre.y+12,painttext)
     }
 }
